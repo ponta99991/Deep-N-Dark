@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include <stdio.h>
+#include <iostream>
 
 class Game {
 public:
@@ -19,7 +20,12 @@ public:
 private:
 	void init(const char* title, int xpos, int ypos, int width, int height);
 	bool isRunning;
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+	SDL_Window* _window;
 
+public:
+	static SDL_Renderer* _renderer;
+	bool _downKeyPressed = false;
+	bool _upKeyPressed = false;
+	bool _leftKeyPressed = false;
+	bool _rightKeyPressed = false;
 };
