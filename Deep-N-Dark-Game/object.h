@@ -15,9 +15,9 @@ public:
 	void translate(Direction dirr, int distance);
 
 private:
-	int _x, _y, _w, _h;
 	void drawToTexture(void);
 
 protected:
-
+	int _x, _y, _w, _h;
+	int _xVel = 0, _yVel = 0;
 };

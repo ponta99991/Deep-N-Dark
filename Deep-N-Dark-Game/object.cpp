@@ -8,16 +8,16 @@ void Object::translate(Direction dirr, int distance) {
 	switch (dirr)
 	{
 	case up:
-		_y--;
+		_y-= distance;
 		break;
 	case down:
-		_y++;
+		_y+= distance;
 		break;
 	case left:
-		_x--;
+		_x-= distance;
 		break;
 	case right:
-		_x++;
+		_x+= distance;
 		break;
 	default:
 		break;
