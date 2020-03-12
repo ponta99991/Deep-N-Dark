@@ -1,6 +1,8 @@
 #include "SDL.h"
 #include "game.h"
 #include "object.h"
+#include "entity.h"
+#include "player.h"
 
 
 int main(int argc, char* argv[])
@@ -12,26 +14,27 @@ int main(int argc, char* argv[])
 
 	std::cout << "game has started\n";
 	Game game("Dark-N-Deep", 300, 200, 800, 600);
-	Object o(400, 300, 20, 20);
+
+	Player player(400, 300, 20, 20);
 
 	while (game.running()) {
 		frameStart = SDL_GetTicks();
 		game.handleEvents();
 
 		if (game._downKeyPressed) {
-			o.translate(down, 1);
+			player.walk(down);
 		}
-		else if (game._leftKeyPressed) {
-			o.translate(left, 1);
+		if (game._leftKeyPressed) {
+			player.walk(left);
 		}
-		else if (game._upKeyPressed) {
-			o.translate(up, 1);
+		if (game._upKeyPressed) {
+			player.walk(up);
 		}
-		else if (game._rightKeyPressed) {
-			o.translate(right, 1);
+		if (game._rightKeyPressed) {
+			player.walk(right);
 		}
 		//game.update();
-		o.draw();
+		player.draw();
 		game.render();
 
 		frameTime = SDL_GetTicks() - frameStart;
